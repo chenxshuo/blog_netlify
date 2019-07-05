@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第一次作业 感知机实验内容简介本次实验通过python实现感知机模型，并使用sklearn中的鸢尾花数据进行数据分类。在理解原有代码的基础上，通过加入正则项，调整学习率等方法来尝试提高模型的泛化能力和准确度。 代码复现代码分为库导入，Perceptron类和main函数三大部分。 库导入部分导入所需的numpy包，math包，sklearn中的数据，画图工具matplotlib 1234567im">
+<meta property="og:type" content="article">
+<meta property="og:title" content="perceptron">
+<meta property="og:url" content="https://chenxshuo.cn/2018/10/30/perceptron/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="第一次作业 感知机实验内容简介本次实验通过python实现感知机模型，并使用sklearn中的鸢尾花数据进行数据分类。在理解原有代码的基础上，通过加入正则项，调整学习率等方法来尝试提高模型的泛化能力和准确度。 代码复现代码分为库导入，Perceptron类和main函数三大部分。 库导入部分导入所需的numpy包，math包，sklearn中的数据，画图工具matplotlib 1234567im">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540273094630.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540271351217.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540271378154.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275060722.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275077882.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275269830.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275308649.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275423448.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540275704173.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540276193975.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540276431899.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540276494468.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540277920629.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540277927362.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540278115813.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540278278455.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540278379539.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540278740406.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540279493292.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540279047443.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540279314013.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540280899310.png">
+<meta property="og:image" content="https://chenxshuo.cn/images/perceptron/1540283381393.png">
+<meta property="og:updated_time" content="2019-07-05T07:29:54.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="perceptron">
+<meta name="twitter:description" content="第一次作业 感知机实验内容简介本次实验通过python实现感知机模型，并使用sklearn中的鸢尾花数据进行数据分类。在理解原有代码的基础上，通过加入正则项，调整学习率等方法来尝试提高模型的泛化能力和准确度。 代码复现代码分为库导入，Perceptron类和main函数三大部分。 库导入部分导入所需的numpy包，math包，sklearn中的数据，画图工具matplotlib 1234567im">
+<meta name="twitter:image" content="https://chenxshuo.cn/images/perceptron/1540273094630.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2018/10/30/perceptron/">
+
+
+
+
+
+  <title>perceptron | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2018/10/30/perceptron/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">perceptron</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T22:03:27+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第一次作业-感知机"><a href="#第一次作业-感知机" class="headerlink" title="第一次作业 感知机"></a>第一次作业 感知机</h1><h2 id="实验内容简介"><a href="#实验内容简介" class="headerlink" title="实验内容简介"></a>实验内容简介</h2><p>本次实验通过python实现感知机模型，并使用sklearn中的鸢尾花数据进行数据分类。在理解原有代码的基础上，通过加入正则项，调整学习率等方法来尝试提高模型的泛化能力和准确度。</p>
+<h2 id="代码复现"><a href="#代码复现" class="headerlink" title="代码复现"></a>代码复现</h2><p>代码分为库导入，Perceptron类和main函数三大部分。</p>
+<h3 id="库导入部分"><a href="#库导入部分" class="headerlink" title="库导入部分"></a>库导入部分</h3><p>导入所需的numpy包，math包，sklearn中的数据，画图工具matplotlib</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> train_test_split</span><br><span class="line"><span class="keyword">import</span> matplotlib <span class="keyword">as</span> mlp</span><br><span class="line">mlp.use(<span class="string">"Agg"</span>)</span><br><span class="line"><span class="keyword">from</span> matplotlib.colors <span class="keyword">import</span> ListedColormap</span><br></pre></td></tr></table></figure>
+
+<h3 id="Perceptron-Class"><a href="#Perceptron-Class" class="headerlink" title="Perceptron Class"></a>Perceptron Class</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Perceptron</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="comment">#构造函数 设定学习率eta 和迭代次数iter</span></span><br><span class="line">    <span class="comment">#默认为0.01 和 20</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, eta=<span class="number">0.01</span>, n_iter=<span class="number">20</span>)</span>:</span></span><br><span class="line">        self.eta = eta</span><br><span class="line">        self.n_iter = n_iter</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#拟合函数</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line">        <span class="comment">#初始化模型参数</span></span><br><span class="line">        <span class="comment">#wb为 权重和偏置项</span></span><br><span class="line">        <span class="comment">#theta1保存了w即权重的更新情况</span></span><br><span class="line">        <span class="comment">#theta2保存了b即偏置项的更新情况</span></span><br><span class="line">        <span class="comment">#errors_保存了每一次迭代的分错点的个数情况</span></span><br><span class="line">        self.wb = np.zeros(<span class="number">1</span> + X.shape[<span class="number">1</span>])</span><br><span class="line">        self.theta1 = []</span><br><span class="line">        self.theta2 = []</span><br><span class="line">        self.errors_ = []</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#开始迭代</span></span><br><span class="line">        i = <span class="number">0</span></span><br><span class="line">        <span class="keyword">for</span> _ <span class="keyword">in</span> range(self.n_iter):</span><br><span class="line">            i = i + <span class="number">1</span></span><br><span class="line">            errors = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> xi , yi <span class="keyword">in</span> zip(X, y):</span><br><span class="line">                <span class="comment"># core codes: update the weights and bias</span></span><br><span class="line">                <span class="comment"># 使用函数表示式 避免了判断的过程 函数式思想 避免判断 对学习率*2</span></span><br><span class="line">                update = self.eta * (yi - self.predict(xi))</span><br><span class="line">                self.wb[<span class="number">1</span>:] = self.wb[<span class="number">1</span>:] + update * xi</span><br><span class="line">                self.wb[<span class="number">0</span>] = self.wb[<span class="number">0</span>] + update</span><br><span class="line">                </span><br><span class="line">                <span class="comment">#errors 是分错的次数</span></span><br><span class="line">                errors += int(update != <span class="number">0.0</span>)</span><br><span class="line">                err_sum = <span class="number">0</span></span><br><span class="line">                <span class="keyword">for</span> xj, yj <span class="keyword">in</span> zip(X, y):</span><br><span class="line">                    <span class="keyword">if</span>(yj - self.predict(xj) != <span class="number">0</span>):</span><br><span class="line">                        err_sum += abs(yj - self.predict(xj))</span><br><span class="line">                        </span><br><span class="line">            <span class="comment"># 第一个权值更新的情况</span></span><br><span class="line">            self.theta1.append(self.wb[<span class="number">1</span>])</span><br><span class="line">            <span class="comment"># 第二个权值更新的情况</span></span><br><span class="line">            self.theta2.append(self.wb[<span class="number">2</span>])</span><br><span class="line">            <span class="comment"># 每一轮迭代错误点的个数的变化</span></span><br><span class="line">            self.errors_.append(errors)</span><br><span class="line">            </span><br><span class="line">        print(self.wb)</span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#计算空间中一点到平面中的距离</span></span><br><span class="line">    <span class="comment">#函数式编程思想 避免if判断</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">net_input</span><span class="params">(self, xi)</span>:</span></span><br><span class="line">        <span class="comment">#空间中一点到平面的距离</span></span><br><span class="line">        <span class="keyword">return</span> np.dot(xi, self.wb[<span class="number">1</span>:]) + self.wb[<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#根据距离的正负判断分类的结果</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(self, xi)</span>:</span></span><br><span class="line">        <span class="comment">#indicator 函数 sign函数</span></span><br><span class="line">        <span class="keyword">return</span> np.where(self.net_input(xi) &lt;= <span class="number">0.0</span> , <span class="number">-1</span>, <span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#画出样本点和模型的分类结果</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">plot_decision_regions</span><span class="params">(self, X, y, resolution = <span class="number">0.02</span>)</span>:</span></span><br><span class="line">        colors = [<span class="string">"red"</span>,<span class="string">"blue"</span>]</span><br><span class="line">        markers = [<span class="string">"o"</span>,<span class="string">"x"</span>]</span><br><span class="line">        cmap = ListedColormap(colors[:len(np.unique(y))])</span><br><span class="line">        x1_max, x1_min = max(X[:,<span class="number">0</span>])+ <span class="number">1</span>, min(X[:, <span class="number">0</span>]) - <span class="number">1</span></span><br><span class="line">        x2_max, x2_min = max(X[:,<span class="number">1</span>]) + <span class="number">1</span>, min(X[:,<span class="number">1</span>]) - <span class="number">1</span></span><br><span class="line">        xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),</span><br><span class="line">                               np.arange(x2_min, x2_max, resolution))</span><br><span class="line">        Z = self.predict(np.array([xx1.ravel(), xx2.ravel()]).T)</span><br><span class="line">        <span class="comment">#print("Z is :",Z)</span></span><br><span class="line">        </span><br><span class="line">        Z = Z.reshape(xx1.shape)</span><br><span class="line">        plt.contourf(xx1, xx2, Z, alpha=<span class="number">0.4</span>, cmap=cmap)</span><br><span class="line">        plt.xlim(xx1.min(), xx1.max())</span><br><span class="line">        plt.ylim(xx2.min(),xx2.max())</span><br><span class="line">        <span class="keyword">for</span> idx, cl <span class="keyword">in</span> enumerate(np.unique(y)):</span><br><span class="line">            plt.scatter(x=X[y==cl, <span class="number">0</span>], y=X[y==cl,<span class="number">1</span>],</span><br><span class="line">                        alpha=<span class="number">0.8</span>, c=cmap(idx),</span><br><span class="line">                        marker=markers[idx],label=cl)</span><br><span class="line">        <span class="comment">#plt.savefig("./perceptron.png",format="png")</span></span><br><span class="line">        plt.show()</span><br><span class="line">        </span><br><span class="line">    <span class="comment">#画出errors随着迭代次数的上升的变化情况</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">painter3D</span><span class="params">(self, theta1, theta2, loss, XX, YY)</span>:</span></span><br><span class="line">        fig = plt.figure()</span><br><span class="line">        ax1 = Axes3D(fig)</span><br><span class="line">        x,y,z = theta1, theta2, loss</span><br><span class="line">        XXY = XX</span><br><span class="line">        lst = []</span><br><span class="line">        xa, ya = np.meshgrid(np.arange(<span class="number">-10</span>, <span class="number">10</span>, <span class="number">0.5</span>), np.arange(<span class="number">-10</span>,<span class="number">10</span>,<span class="number">0.5</span>))</span><br><span class="line">        sums = xa - xa</span><br><span class="line">        print(sums.shape)</span><br><span class="line">        print(xa)</span><br><span class="line">        print(XXY[<span class="number">1</span>][<span class="number">0</span>])</span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> range(<span class="number">0</span>, XXY.shape[<span class="number">0</span>], <span class="number">1</span>):</span><br><span class="line">            sums += np.abs((YY[k] - (xa * XXY[k][<span class="number">0</span>] + ya * XXY[k][<span class="number">1</span>])))</span><br><span class="line">        </span><br><span class="line">        ax1.plot_surface(xa, ya, sums, rstride=<span class="number">1</span>, cstride=<span class="number">1</span>, cmap=plt.cm.jet, alpha=<span class="number">0.3</span>)</span><br><span class="line">        ax1.plot_wireframe(x,y,z, rstride=<span class="number">5</span>, cstride=<span class="number">5</span>)</span><br><span class="line">        ax1.set_xlabel(<span class="string">"theta1"</span>)</span><br><span class="line">        ax1.set_ylabel(<span class="string">"theta2"</span>)</span><br><span class="line">        ax1.set_zlabel(<span class="string">"loss"</span>)</span><br><span class="line">        plt.show()</span><br></pre></td></tr></table></figure>
+
+<h3 id="main"><a href="#main" class="headerlink" title="main"></a>main</h3><p>首先加载数据，选取指定行数和列属性的特征数据和标签，之后进行训练集和测试集的划分。</p>
+<p>然后实例化一个Perceptron对象，使用数据进行模型的拟合，然后输出错误点的个数变化，并可视化最终结果和损失函数的变化。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#主函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="comment">#载入数据</span></span><br><span class="line">    iris = load_iris()</span><br><span class="line">    <span class="comment">#设定数据的数量和属性列</span></span><br><span class="line">    X = iris.data[:<span class="number">150</span>, [<span class="number">0</span>,<span class="number">1</span>]]</span><br><span class="line">    y = iris.target[:<span class="number">150</span>]</span><br><span class="line">    y = np.where( y == <span class="number">1</span>, <span class="number">1</span>, <span class="number">-1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#划分训练集和测试集划分比例为7:3</span></span><br><span class="line">    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = <span class="number">0.3</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#实例化Perceptron</span></span><br><span class="line">    ppn = Perceptron(<span class="number">0.1</span>,<span class="number">50</span>)</span><br><span class="line">    <span class="comment">#模型拟合</span></span><br><span class="line">    rst = ppn.fit(X_train, y_train)</span><br><span class="line">    <span class="comment">#print("theta1 : ",np.array(rst.theta1))</span></span><br><span class="line">    print(<span class="string">"Num of errors  is "</span>, rst.errors_)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#可视化结果</span></span><br><span class="line">    ppn.plot_decision_regions(X_test,y_test)</span><br><span class="line">    ppn.painter3D(np.array(rst.theta1).reshape(len(rst.theta1),<span class="number">1</span>), np.array(rst.theta2).reshape(len(rst.theta2),<span class="number">1</span>),np.array(rst.errors_).reshape(len(rst.errors_),<span class="number">1</span>), X, y)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"><span class="comment">#调用主函数</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><p>在使用前100个数据的前两列属性进行训练，设定学习率为0.1，迭代次数为20次，结果如下：</p>
+<p><img src="/images/perceptron/1540273094630.png" alt="1540273094630"></p>
+<p>可以看到得到最终的模型为$3.84x_1-8.06x_2-1.8$ ,最终20次迭代结束100个训练样本分错的个数是2个，模型的效果不错。</p>
+<p>之后是对测试集和得到的结果进行可视化，可以看到模型把测试集较好区分成两部分，每一个点都正确分类。</p>
+<p><img src="/images/perceptron/1540271351217.png" alt="1540271351217"></p>
+<p>下图是对于loss的可视化可以看到loss在一步步向较低的位置移动，体现出梯度下降方法的优化能力 </p>
+<p><img src="/images/perceptron/1540271378154.png" alt="1540271378154"></p>
+<h2 id="模型探索，调整，优化"><a href="#模型探索，调整，优化" class="headerlink" title="模型探索，调整，优化"></a>模型探索，调整，优化</h2><h3 id="调整学习率"><a href="#调整学习率" class="headerlink" title="调整学习率"></a>调整学习率</h3><p>学习率是模型每一次更新参数的步长，学习率过大理论上会导致过拟合或者越过最小点，学习率过小会导致训练的时间过长，时间消耗更高。</p>
+<h4 id="提高学习率"><a href="#提高学习率" class="headerlink" title="提高学习率"></a>提高学习率</h4><p>初始的学习率为0.1，设置学习率为1,迭代次数为20</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ppn = Perceptron(<span class="number">1</span>,<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+
+<p>结果如下：</p>
+<p><img src="/images/perceptron/1540275060722.png" alt="1540275060722"></p>
+<p><img src="/images/perceptron/1540275077882.png" alt="1540275077882"></p>
+<p>虽然最终的结果也比较不错，可是在每次迭代的错误数据的波动来看，可以发现波动比较大，在学习率是0.1时的迭代错误数量的变化如下：</p>
+<p><img src="/images/perceptron/1540275269830.png" alt="1540275269830"></p>
+<p>而当学习率为1时：</p>
+<p><img src="/images/perceptron/1540275308649.png" alt="1540275308649"></p>
+<p>可以看出波动十分的剧烈，这就是因为学习率太大，导致模型的每次更新太多，使得本来已经正确分类的点再次被错误分类。</p>
+<h4 id="降低学习率"><a href="#降低学习率" class="headerlink" title="降低学习率"></a>降低学习率</h4><p>将学习率从0.1降低至0.01，结果如下：</p>
+<p><img src="/images/perceptron/1540275423448.png" alt="1540275423448"></p>
+<p>可以看到loss下降的比较缓慢，不过因为数据集比较简单，虽然在训练集上并未拟合成功，但是已经恰好可以正确分类测试集的数据。</p>
+<p>学习率为0.01时的波动如下：</p>
+<p><img src="/images/perceptron/1540275704173.png" alt="1540275704173"></p>
+<p>可以看到下降的比较缓慢，没有学习率为0.1时下降的迅速。</p>
+<h4 id="动态更新学习率"><a href="#动态更新学习率" class="headerlink" title="动态更新学习率"></a>动态更新学习率</h4><p>动态更新学习率也是一种选择，其基本思路是在训练的初始阶段使用比较大的学习率，随着训练的进行渐渐减小学习率。最一开始学习率比较大可以较快的接近最优点，随着训练的进行，降低学习率可以避免越过全局最优，更快拟合。</p>
+<p>在实验中，初始学习率设置为1.0 每一次更新学习率下降0.05，更改Perceptron.fit()代码</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">self.eta = self.eta - <span class="number">0.05</span></span><br><span class="line"><span class="keyword">for</span> xi , yi <span class="keyword">in</span> zip(X, y):</span><br><span class="line">             <span class="comment"># core codes: update the weights and bias</span></span><br><span class="line">             <span class="comment"># 使用函数表示式 避免了判断的过程 函数式思想 避免判断 对学习率*2</span></span><br><span class="line">             update = self.eta * (yi - self.predict(xi))</span><br><span class="line">             self.wb[<span class="number">1</span>:] = self.wb[<span class="number">1</span>:] + update * xi</span><br><span class="line">             self.wb[<span class="number">0</span>] = self.wb[<span class="number">0</span>] + update</span><br></pre></td></tr></table></figure>
+
+<p>得到结果如下：</p>
+<p><img src="/images/perceptron/1540276193975.png" alt="1540276193975"></p>
+<p>其loss的下降情况如图：</p>
+<p><img src="/images/perceptron/1540276431899.png" alt="1540276431899"></p>
+<p>可以看到属于一个比较理想的优化状态</p>
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><p>将三种情况的波动情况统一展示：</p>
+<p><img src="/images/perceptron/1540276494468.png" alt="1540276494468"></p>
+<p>虽然仅仅20次迭代不过依然可以看到十分明显的差异，学习率比较小的情况下loss下降比较缓慢，学习率比较大的情况下loss的波动情况十分明显，设定合适的学习率和动态下降学习率两种方法得到的结果比较理想，一直以比较快速的速率下降。</p>
+<h3 id="调整迭代次数"><a href="#调整迭代次数" class="headerlink" title="调整迭代次数"></a>调整迭代次数</h3><p>迭代次数也是训练模型中一个比较重要的参数，如果训练次数过大，会让训练的时间上升并且导致模型过拟合，如果训练次数过小导致模型未训练完成，两种情况都会降低模型的泛化性能，降低模型的准确度。</p>
+<p>初始情况下，设定学习率为0.1，迭代次数为20次，此时统计训练时间和模型的泛化能力</p>
+<p>更改main函数中的代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">start = time.time()</span><br><span class="line">rst = ppn.fit(X_train, y_train)</span><br><span class="line">end = time.time()</span><br><span class="line">print(<span class="string">"Cost: "</span>,end-start,<span class="string">" s"</span>)</span><br></pre></td></tr></table></figure>
+
+<p>结果如图：</p>
+<p><img src="/images/perceptron/1540277920629.png" alt="1540277920629"></p>
+<p><img src="/images/perceptron/1540277927362.png" alt="1540277927362"></p>
+<p>可以看到用时0.39s</p>
+<h4 id="提高迭代次数"><a href="#提高迭代次数" class="headerlink" title="提高迭代次数"></a>提高迭代次数</h4><p>设定学习率为0.1，训练次数从20次调整到100次，比较时间的变化和模型的表现能力：</p>
+<p><img src="/images/perceptron/1540278115813.png" alt="1540278115813"></p>
+<p>可以看到用时1.7s 是刚刚的四倍左右，模型的效果与原模型相差不多。</p>
+<p><img src="/images/perceptron/1540278278455.png" alt="1540278278455"></p>
+<h4 id="降低迭代次数"><a href="#降低迭代次数" class="headerlink" title="降低迭代次数"></a>降低迭代次数</h4><p>降低迭代次数为5次，结果如下</p>
+<p><img src="/images/perceptron/1540278379539.png" alt="1540278379539"></p>
+<p>可以看到虽然时间变短了一半，可是模型的效果并不理想，也就是说模型还未训练成功。</p>
+<h4 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h4><p>通过调整迭代次数，可以体会到迭代次数对于模型训练的意义，过多的迭代次数并不会提高模型的性能，反而会导致过拟合并浪费时间，反之太小的迭代次数会导致模型没有训练成功。</p>
+<h3 id="增加数据量"><a href="#增加数据量" class="headerlink" title="增加数据量"></a>增加数据量</h3><p>在原实验中，仅仅使用了前100行的数据进行区分，训练的到的模型效果比较理想，现在尝试使用更多的数据进行模型的训练。</p>
+<p>设置学习率为0.1，迭代次数为20，选择前150行的数据进行训练，结果如下：</p>
+<p><img src="/images/perceptron/1540278740406.png" alt="1540278740406"></p>
+<p><img src="/images/perceptron/1540279493292.png" alt="1540279493292"></p>
+<p>可以看到分类的效果并不理想，在训练集中loss一直没有下降很多最后从可视化结果中看出陷入了局部最优点无法继续下降，对于测试集数据分类的效果也不理想，</p>
+<p>考虑到20次的迭代次数可能未训练成功，提高迭代此时为100，结果如下：</p>
+<p><img src="/images/perceptron/1540279047443.png" alt="1540279047443"></p>
+<p><img src="/images/perceptron/1540279314013.png" alt="1540279314013"></p>
+<p>可以看到模型训练的结果十分不理想，首先loss一直没有下降的趋势，其次在测试集上完全无法分类。</p>
+<p>考虑到其原因，我认为可以从数据的分布和过拟合两个角度来探讨。</p>
+<p>从数据的分布来看，可以从图中看出红色的点和蓝色的×号之间不是线性可分的关系，因为感知机模型能够成功的基础之一便是数据集线性可分，因此使用现在的数据从根本上无法得到准确率100%的感知机模型。其次从过拟合的角度来比较前后两次实验结果，反而在迭代次数为20次的时训练得到的模型在测试集上的表现较为良好，没有出现全部分为一类的情况，因此我认为随着训练次数的增加，模型陷入了过拟合，导致泛化能力大大下降。</p>
+<h3 id="加入正则项"><a href="#加入正则项" class="headerlink" title="加入正则项"></a>加入正则项</h3><h4 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h4><p>使用L2范数作为正则化项则损失函数为：</p>
+<p>$L(w,b) = -\sum y_i(w\cdot x_i + b) + \frac{\lambda }{2}||(w,b)||^2$</p>
+<p>对$L(w,b)$求导：</p>
+<p>$\nabla _wL(w,b) =-\sum y_ix_i + \lambda \sum w $</p>
+<p>$\nabla _bL(w,b) =-\sum y_i+ \lambda b$</p>
+<p>因此更新公式为：</p>
+<p>$w \leftarrow w + \eta (y_ix_i - \lambda\sum w)$</p>
+<p>$b \leftarrow b + \eta(y_i - \lambda b)$</p>
+<h4 id="代码更改"><a href="#代码更改" class="headerlink" title="代码更改"></a>代码更改</h4><p>将Perceptron.fit()代码中的参数更新部分改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">update = self.eta * (yi - self.predict(xi))</span><br><span class="line">self.wb[<span class="number">1</span>:] = self.wb[<span class="number">1</span>:] + update * xi - self.eta * self.lamb * np.sum(self.wb[<span class="number">1</span>:])</span><br><span class="line">self.wb[<span class="number">0</span>] = self.wb[<span class="number">0</span>] + update - self.eta * self.lamb * self.wb[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+
+<p>其中self.lamb为超参数，默认设置为0.1</p>
+<h4 id="实验比较"><a href="#实验比较" class="headerlink" title="实验比较"></a>实验比较</h4><p>迭代一百次添加正则化：</p>
+<p><img src="/images/perceptron/1540280899310.png" alt="1540280899310"></p>
+<p>迭代100次不添加正则化：</p>
+<p><img src="/images/perceptron/1540283381393.png" alt="1540283381393"></p>
+<p>可以体现出添加正则项之后，在测试集上模型表现的更好一些.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/30/what-is-the-three-elements-of-statistical-machine-learning/" rel="next" title="what is the three elements of statistical machine learning?">
+                <i class="fa fa-chevron-left"></i> what is the three elements of statistical machine learning?
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/02/YOLO-v1-Learning-Notes/" rel="prev" title="YOLO  v1 Learning Notes">
+                YOLO  v1 Learning Notes <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第一次作业-感知机"><span class="nav-number">1.</span> <span class="nav-text">第一次作业 感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#实验内容简介"><span class="nav-number">1.1.</span> <span class="nav-text">实验内容简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码复现"><span class="nav-number">1.2.</span> <span class="nav-text">代码复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#库导入部分"><span class="nav-number">1.2.1.</span> <span class="nav-text">库导入部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Perceptron-Class"><span class="nav-number">1.2.2.</span> <span class="nav-text">Perceptron Class</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#main"><span class="nav-number">1.2.3.</span> <span class="nav-text">main</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结果"><span class="nav-number">1.2.4.</span> <span class="nav-text">结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型探索，调整，优化"><span class="nav-number">1.3.</span> <span class="nav-text">模型探索，调整，优化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#调整学习率"><span class="nav-number">1.3.1.</span> <span class="nav-text">调整学习率</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提高学习率"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">提高学习率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降低学习率"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">降低学习率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#动态更新学习率"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">动态更新学习率</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结"><span class="nav-number">1.3.1.4.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调整迭代次数"><span class="nav-number">1.3.2.</span> <span class="nav-text">调整迭代次数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#提高迭代次数"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">提高迭代次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#降低迭代次数"><span class="nav-number">1.3.2.2.</span> <span class="nav-text">降低迭代次数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#总结-1"><span class="nav-number">1.3.2.3.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增加数据量"><span class="nav-number">1.3.3.</span> <span class="nav-text">增加数据量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#加入正则项"><span class="nav-number">1.3.4.</span> <span class="nav-text">加入正则项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#推导"><span class="nav-number">1.3.4.1.</span> <span class="nav-text">推导</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#代码更改"><span class="nav-number">1.3.4.2.</span> <span class="nav-text">代码更改</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实验比较"><span class="nav-number">1.3.4.3.</span> <span class="nav-text">实验比较</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

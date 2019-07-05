@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="题目均来自 Practice It">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java PracticeIt">
+<meta property="og:url" content="https://chenxshuo.cn/2017/09/19/Java-PracticeIt/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="题目均来自 Practice It">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-465237.jpg">
+<meta property="og:updated_time" content="2019-07-05T07:29:54.909Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java PracticeIt">
+<meta name="twitter:description" content="题目均来自 Practice It">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-465237.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2017/09/19/Java-PracticeIt/">
+
+
+
+
+
+  <title>Java PracticeIt | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2017/09/19/Java-PracticeIt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java PracticeIt</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-19T21:43:07+08:00">
+                2017-09-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-465237.jpg" alt="General 1920x1080 Java development web development"></p>
+<p>题目均来自 <a href="https://practiceit.cs.washington.edu" target="_blank" rel="noopener">Practice It</a></p>
+<a id="more"></a>
+
+<h2 id="Java-练习题-form-Practice-it"><a href="#Java-练习题-form-Practice-it" class="headerlink" title="Java 练习题 form Practice it"></a>Java 练习题 form Practice it</h2><h3 id="Chapter-1-：-Introduction-to-Java"><a href="#Chapter-1-：-Introduction-to-Java" class="headerlink" title="Chapter 1 ： Introduction to Java"></a>Chapter 1 ： Introduction to Java</h3><p>1.What is the output produced from the following statements?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"\"Quotes\""</span>);<span class="comment">//转义字符的使用</span></span><br><span class="line">System.out.println(<span class="string">"Slashes \\//"</span>);</span><br><span class="line">System.out.println(<span class="string">"How '\"confounding' \"\\\" it is!"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>OUTPUT:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;Quotes&quot;</span><br><span class="line">Slashes \//</span><br><span class="line">How &apos;&quot;confounding&apos; &quot;\&quot; it is!</span><br></pre></td></tr></table></figure>
+
+<p>What is the output produced from the following statements?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(&quot;Shaq is 7&apos;1&quot;);</span><br><span class="line">System.out.println(&quot;The string \&quot;\&quot; is an empty message.&quot;);</span><br><span class="line">System.out.println(&quot;\\&apos;\&quot;\&quot;&quot;);</span><br></pre></td></tr></table></figure>
+
+<p>OUTPUT:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Shaq is 7&apos;1</span><br><span class="line">The string &quot;&quot; is an empty message.</span><br><span class="line">\&apos;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p>转义字符的使用，在使用println或者print输出双引号时，需要添加转义字符，当输出转义字符时，也需要在前添加转义字符。</p>
+<p>注意区分转义字符和除法运算符两个符号的倾斜方向，转义字符为\，向左倾斜，除法运算符为/向右倾斜。</p>
+<p>2.What is the output produced from the following statements? (Treat tabs as aligning to every multiple of eight spaces.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"name\tage\theight"</span>);</span><br><span class="line">System.out.println(<span class="string">"Archie\t17\t5'9\""</span>);</span><br><span class="line">System.out.println(<span class="string">"Betty\t17\t5'6\""</span>);</span><br><span class="line">System.out.println(<span class="string">"Jughead\t16\t6'"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>OUTPUT：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">name    age     height</span><br><span class="line">Archie  17      5&apos;9&quot;</span><br><span class="line">Betty   17      5&apos;6&quot;</span><br><span class="line">Jughead 16      6&apos;</span><br></pre></td></tr></table></figure>
+
+<p>\t 为制表符，在数据处理时经常用来区分表格的列与列之间的界限，也常用来规范输出内容提高易读性。</p>
+<blockquote>
+<p>A tab inserts multiple spaces until the total number of characters on the current line so far is a multiple of 8. So for example, in the string <code>&quot;hi\thello\tgoodbye\tbeautiful\thi&quot;</code>, the first <code>\t</code> becomes 6 spaces (because <code>&quot;hi&quot;</code> is 2 characters, so it takes 6 more to get to 8), the second <code>\t</code> is 3 spaces (because <code>&quot;hello&quot;</code> is 5 characters wide, so it takes 3 more characters to get to 8), the third is 1 (because <code>&quot;goodbye&quot;</code> is 7 characters), and the fourth <code>\t</code> is 7 spaces (because <code>&quot;beautiful&quot;</code> is 9 characters, so it takes 7 more to get to 16, which is the next multiple of 8).                                        – From PracticeIt</p>
+</blockquote>
+<p>​                                                    </p>
+<p>3.What is the output from the following Java program? (Assume that a tab is expanded into eight spaces.)</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Letter</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Dear \"DoubleSlash\" magazine,"</span>);</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"\tYour publication confuses me.  Is it"</span>);</span><br><span class="line">        System.out.println(<span class="string">"a \\\\ slash or a //// slash?"</span>);</span><br><span class="line">        System.out.println(<span class="string">"\nSincerely,"</span>); <span class="comment">//\n为换行符</span></span><br><span class="line">        System.out.println(<span class="string">"Susan \"Suzy\" Smith"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>OUTPUT：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Dear &quot;DoubleSlash&quot; magazine,</span><br><span class="line"></span><br><span class="line">        Your publication confuses me.  Is it</span><br><span class="line">a \\ slash or a //// slash?</span><br><span class="line"></span><br><span class="line">Sincerely,</span><br><span class="line">Susan &quot;Suzy&quot; Smith</span><br></pre></td></tr></table></figure>
+
+<p>4.What series of <code>println</code> statements would produce the following output?</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&quot;Several slashes are sometimes seen,&quot;</span><br><span class="line">said Sally. &quot;I&apos;ve said so.&quot; See?</span><br><span class="line">\ / \\ // \\\ ///</span><br></pre></td></tr></table></figure>
+
+<p>SOLUTIONS:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(<span class="string">"\"Several slashes are sometimes seen,\""</span>);</span><br><span class="line">System.out.println(<span class="string">"said Sally. \"I've said so.\" See?"</span>);</span><br><span class="line">System.out.println(<span class="string">"\\ / \\\\ // \\\\\\ ///"</span>);</span><br></pre></td></tr></table></figure>
+
+<p>5.What is the output produced from the following program? You may wish to draw a structure diagram first.</p>
+<p>   CODE:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tricky</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        message1();</span><br><span class="line">        message2();</span><br><span class="line">        System.out.println(<span class="string">"Done with main."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">message1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This is message1."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">message2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"This is message2."</span>);</span><br><span class="line">        message1();</span><br><span class="line">        System.out.println(<span class="string">"Done with message2."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   OUTPUT:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">This is message1.</span><br><span class="line">This is message2.</span><br><span class="line">This is message1.</span><br><span class="line">Done with message2.</span><br><span class="line">Done with main.</span><br></pre></td></tr></table></figure>
+
+<p>   CODE:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Strange</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        first();</span><br><span class="line">        third();</span><br><span class="line">        second();</span><br><span class="line">        third();</span><br><span class="line">    &#125;    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">first</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Inside first method."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">second</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Inside second method."</span>);</span><br><span class="line">        first();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">third</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Inside third method."</span>);</span><br><span class="line">        first();</span><br><span class="line">        second();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   OUTPUT：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Inside first method.</span><br><span class="line">Inside third method.</span><br><span class="line">Inside first method.</span><br><span class="line">Inside second method.</span><br><span class="line">Inside first method.</span><br><span class="line">Inside second method.</span><br><span class="line">Inside first method.</span><br><span class="line">Inside third method.</span><br><span class="line">Inside first method.</span><br><span class="line">Inside second method.</span><br><span class="line">Inside first method.</span><br></pre></td></tr></table></figure>
+
+<p>   CODE:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Confusing</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"I am method 1."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line">        System.out.println(<span class="string">"I am method 2."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">method3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        method2();</span><br><span class="line">        System.out.println(<span class="string">"I am method 3."</span>);</span><br><span class="line">        method1();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        method1();</span><br><span class="line">        method3();</span><br><span class="line">        method2();</span><br><span class="line">        method3();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   OUTPUT:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">I am method 1.</span><br><span class="line">I am method 1.</span><br><span class="line">I am method 2.</span><br><span class="line">I am method 3.</span><br><span class="line">I am method 1.</span><br><span class="line">I am method 1.</span><br><span class="line">I am method 2.</span><br><span class="line">I am method 1.</span><br><span class="line">I am method 2.</span><br><span class="line">I am method 3.</span><br><span class="line">I am method 1.</span><br></pre></td></tr></table></figure>
+
+<p>   方法之间互相调用，一步一步慢慢看。</p>
+<p>6.The following program is legal under Java’s syntax rules, but it is difficult to read because of its layout and lack of comments. Reformat it using the rules 。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GiveAdvice</span></span>&#123; <span class="keyword">public</span> <span class="keyword">static</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[ ]args)</span></span>&#123; System.out.println (</span><br><span class="line"></span><br><span class="line"><span class="string">"Programs can be easy or"</span>);  System.out.println(</span><br><span class="line">  <span class="string">"difficult to read, depending"</span></span><br><span class="line">);  System.out.println(<span class="string">"upon their format."</span>)</span><br><span class="line">          ;System.out.println();System.out.println(</span><br><span class="line"><span class="string">"Everyone, including yourself,"</span>);</span><br><span class="line">System.out.println</span><br><span class="line">(<span class="string">"will be happier if you choose"</span>);</span><br><span class="line">        System.out.println(<span class="string">"to format your programs."</span></span><br><span class="line">);    &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<p>   ANSWER:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GiveAdvice</span></span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span> <span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        <span class="comment">//input </span></span><br><span class="line">        System.out.println(<span class="string">"Programs can be easy or"</span>);</span><br><span class="line">        System.out.println(<span class="string">"difficult to read, depending"</span>);</span><br><span class="line">        System.out.println(<span class="string">"upon their format."</span>);</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">"Everyone, including yourself,"</span>);</span><br><span class="line">        System.out.println(<span class="string">"will be happier if you choose"</span>);</span><br><span class="line">        System.out.println(<span class="string">"to format your programs."</span>);</span><br><span class="line">        <span class="comment">//input </span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   注意大括号位置的规范，代码块（即大括号中的部分）四个空格的缩进。</p>
+<p>7.Write a complete Java program in a class named <code>Spikey</code> that prints the following output:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  \/</span><br><span class="line"> \\//</span><br><span class="line">\\\///</span><br><span class="line">///\\\</span><br><span class="line"> //\\</span><br><span class="line">  /\</span><br></pre></td></tr></table></figure>
+
+<p>   ANSWER:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Spikey</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"  \\/"</span>);</span><br><span class="line">        System.out.println(<span class="string">" \\\\//"</span>);</span><br><span class="line">        System.out.println(<span class="string">"\\\\\\///"</span>);</span><br><span class="line">        System.out.println(<span class="string">"///\\\\\\"</span>);</span><br><span class="line">        System.out.println(<span class="string">" //\\\\"</span>);</span><br><span class="line">        System.out.println(<span class="string">"  /\\"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   注意空格，还有转义符的个数。</p>
+<p>8.Write a program in a class named <code>Shining</code> that prints the following line of output 1000 times:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">All work and no play makes Jack a dull boy.</span><br></pre></td></tr></table></figure>
+
+<p>   You should not write a program whose source code is 1000 lines long; use methods to shorten the program. What is the shortest program you can write that will produce the 1000 lines of output, using only the material from Chapter 1 (println, methods, etc.)?</p>
+<p>   ​<br>   ANSWER：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Shining</span> </span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">        Times500();</span><br><span class="line">        Times500();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times500</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times250();</span><br><span class="line">        Times250();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times250</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times200();</span><br><span class="line">        Times50();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times200</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times50();</span><br><span class="line">        Times50();</span><br><span class="line">        Times50();</span><br><span class="line">        Times50();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times50</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times25();</span><br><span class="line">        Times25();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times25</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times20();</span><br><span class="line">        Times5();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times20</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times5();</span><br><span class="line">        Times5();</span><br><span class="line">        Times5();</span><br><span class="line">        Times5();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times5</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Times1();</span><br><span class="line">        Times1();</span><br><span class="line">        Times1();</span><br><span class="line">        Times1();</span><br><span class="line">        Times1();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Times1</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"All work and no play makes Jack a dull boy."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>   仅供参考。</p>
+<h3 id="Chapter-2-Primitive-Data-and-Definite-Loops"><a href="#Chapter-2-Primitive-Data-and-Definite-Loops" class="headerlink" title="Chapter 2. Primitive Data and Definite Loops"></a>Chapter 2. Primitive Data and Definite Loops</h3><ol>
+<li>Trace the evaluation of the following expressions, and give their resulting values. Make sure to give a value of the appropriate type (such as including a .0 at the end of a <code>double</code>).</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th align="left">2 + 3 * 4 - 6</th>
+<th align="center">8</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">14 / 7 * 2 + 30 / 5 + 1</td>
+<td align="center">11</td>
+</tr>
+<tr>
+<td align="left">(12 + 3) / 4 * 2</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="left">(238 % 10 + 3) % 7</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left">(18 - 7) * (43 % 10)</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td align="left">2 + 19 % 5 - (11 * (5 / 2))</td>
+<td align="center">-16</td>
+</tr>
+<tr>
+<td align="left">813 % 100 / 3 + 2.4</td>
+<td align="center">6.4</td>
+</tr>
+<tr>
+<td align="left">26 % 10 % 4 * 3</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td align="left">22 + 4 * 2</td>
+<td align="center">30</td>
+</tr>
+<tr>
+<td align="left">23 % 8 % 3</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">12 - 2 - 3</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td align="left">6/2 + 7/3</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td align="left">6 * 7 % 4</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="left">3 * 4 + 2 * 3</td>
+<td align="center">18</td>
+</tr>
+<tr>
+<td align="left">177 % 100 % 10 / 2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="left">89 % (5 + 5) % 5</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left">392 / 10 % 10 / 2</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td align="left">8 * 2 - 7 / 4</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td align="left">37 % 20 % 3 * 4</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td align="left">17 % 10 / 4</td>
+<td align="center">1</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">2 + 2 + 3 + 4</th>
+<th align="center">11</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">“2 + 2 “ + 3 + 4</td>
+<td align="center">“2 + 2 34”</td>
+</tr>
+<tr>
+<td align="left">2 + “ 2 + 3 “ + 4</td>
+<td align="center">“2 2 + 3 4”</td>
+</tr>
+<tr>
+<td align="left">3 + 4 + “ 2 + 2”</td>
+<td align="center">“7 2 + 2”</td>
+</tr>
+<tr>
+<td align="left">“2 + 2 “ + (3 + 4)</td>
+<td align="center">“2 + 2 7”</td>
+</tr>
+<tr>
+<td align="left">“(2 + 2) “ + (3 + 4)</td>
+<td align="center">“(2 + 2) 7”</td>
+</tr>
+<tr>
+<td align="left">“hello 34 “ + 2 * 4</td>
+<td align="center">“hello 34 8”</td>
+</tr>
+<tr>
+<td align="left">2 + “(int) 2.0” + 2 * 2 + 2</td>
+<td align="center">“2(int) 2.042”</td>
+</tr>
+<tr>
+<td align="left">4 + 1 + 9 + “.” + (-3 + 10) + 11 / 3</td>
+<td align="center">“14.73”</td>
+</tr>
+<tr>
+<td align="left">8 + 6 * -2 + 4 + “0” + (2 + 5)</td>
+<td align="center">“007”</td>
+</tr>
+<tr>
+<td align="left">1 + 1 + “8 - 2” + (8 - 2) + 1 + 1</td>
+<td align="center">“28 - 2611”</td>
+</tr>
+<tr>
+<td align="left">5 + 2 + “(1 + 1)” + 4 + 2 * 3</td>
+<td align="center">“7(1 + 1)46”</td>
+</tr>
+<tr>
+<td align="left">“1” + 2 + 3 + “4” + 5 * 6 + “7” + (8 + 9)</td>
+<td align="center">“123430717”</td>
+</tr>
+</tbody></table>
+<p>   注意字符串拼接和数值运算的变化由顺序和括号决定。</p>
+<ol start="2">
+<li><p>What are the values of <code>i</code>, <code>j</code>, and <code>k</code> after the following code statements?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> j = <span class="number">3</span>;</span><br><span class="line"><span class="keyword">int</span> k = <span class="number">4</span>;</span><br><span class="line"><span class="keyword">int</span> x = i + j + k;</span><br><span class="line">i = x - i - j;</span><br><span class="line">j = x - j - k;</span><br><span class="line">k = x - i - k;</span><br></pre></td></tr></table></figure>
+
+<p>ANSWER:</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>j</td>
+<td>2</td>
+</tr>
+<tr>
+<td>k</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<p>   ​</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"># Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/08/Java-Learn-Book/" rel="next" title="Java Learn by yourself by 倾启君">
+                <i class="fa fa-chevron-left"></i> Java Learn by yourself by 倾启君
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/02/VPS-SS-SSR/" rel="prev" title="VPS_SS_SSR">
+                VPS_SS_SSR <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java-练习题-form-Practice-it"><span class="nav-number">1.</span> <span class="nav-text">Java 练习题 form Practice it</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-1-：-Introduction-to-Java"><span class="nav-number">1.1.</span> <span class="nav-text">Chapter 1 ： Introduction to Java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Chapter-2-Primitive-Data-and-Definite-Loops"><span class="nav-number">1.2.</span> <span class="nav-text">Chapter 2. Primitive Data and Definite Loops</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

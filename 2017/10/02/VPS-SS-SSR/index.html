@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="VPS,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Deploy the ss and ssr on Vultr Server">
+<meta name="keywords" content="VPS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VPS_SS_SSR">
+<meta property="og:url" content="https://chenxshuo.cn/2017/10/02/VPS-SS-SSR/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="Deploy the ss and ssr on Vultr Server">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-386531.jpg">
+<meta property="og:updated_time" content="2019-07-05T07:29:54.966Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="VPS_SS_SSR">
+<meta name="twitter:description" content="Deploy the ss and ssr on Vultr Server">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-386531.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2017/10/02/VPS-SS-SSR/">
+
+
+
+
+
+  <title>VPS_SS_SSR | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2017/10/02/VPS-SS-SSR/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">VPS_SS_SSR</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-02T20:38:59+08:00">
+                2017-10-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-386531.jpg" alt="General 1366x768 server room tiles lights glass in-line architecture technology Hi-Tech data center operating systems"></p>
+<p>Deploy the ss and ssr on Vultr Server</p>
+<a id="more"></a>
+
+<h3 id="Deploy-ss-on-server"><a href="#Deploy-ss-on-server" class="headerlink" title="Deploy ss on server"></a>Deploy ss on server</h3><p>Use Script to deploy</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocks.sh</span><br><span class="line"></span><br><span class="line">./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log</span><br></pre></td></tr></table></figure>
+
+<h3 id="Deploy-ssr-on-server"><a href="#Deploy-ssr-on-server" class="headerlink" title="Deploy ssr on server"></a>Deploy ssr on server</h3><p>Use script to deploy</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget --no-check-certificate	 https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh</span><br><span class="line"></span><br><span class="line">chmod +x shadowsocksR.sh</span><br><span class="line"></span><br><span class="line">./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log</span><br></pre></td></tr></table></figure>
+
+<h3 id="Use-Tcp-BBR-to-improve-the-connection-speed"><a href="#Use-Tcp-BBR-to-improve-the-connection-speed" class="headerlink" title="Use Tcp-BBR to improve the connection speed"></a>Use Tcp-BBR to improve the connection speed</h3><p>Use script to deploy</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; bash bbr.sh</span><br></pre></td></tr></table></figure>
+
+<p>then input y and waiting for reboot.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br><span class="line"><span class="comment">#if the output contains tcp_bbr then you have succeed.</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Use-ssr-client-on-Linux"><a href="#Use-ssr-client-on-Linux" class="headerlink" title="Use ssr client on Linux"></a>Use ssr client on Linux</h3><p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-libev" target="_blank" rel="noopener">Download</a></p>
+<p>Install dependences:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install --no-install-recommends build-essential autoconf libtool libssl-dev     gawk debhelper dh-systemd init-system-helpers pkg-config asciidoc xmlto apg libpcre3-dev</span><br></pre></td></tr></table></figure>
+
+<p>Compile and Install</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd shadowsocksr #Under the folder</span><br><span class="line">make </span><br><span class="line">make install</span><br></pre></td></tr></table></figure>
+
+<p>Input order and see the help information:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">chenxshuo@chenxshuo:~$ ss-local</span><br><span class="line"> 2017-10-02 17:06:16 ERROR: Invalid config path.</span><br><span class="line">chenxshuo@chenxshuo:~$ ss-local -h</span><br><span class="line"></span><br><span class="line">shadowsocks-libev 2.5.6 with OpenSSL 1.0.2g  1 Mar 2016</span><br><span class="line"></span><br><span class="line">  maintained by Max Lv &lt;max.c.lv@gmail.com&gt; and Linus Yang &lt;laokongzi@gmail.com&gt;</span><br><span class="line"></span><br><span class="line">  usage:</span><br><span class="line"></span><br><span class="line">    ss-local</span><br><span class="line"></span><br><span class="line">       -s &lt;server_host&gt;           Host name or IP address of your remote server.</span><br><span class="line">       -p &lt;server_port&gt;           Port number of your remote server.</span><br><span class="line">       -l &lt;local_port&gt;            Port number of your local server.</span><br><span class="line">       -k &lt;password&gt;              Password of your remote server.</span><br><span class="line">       -m &lt;encrypt_method&gt;        Encrypt method: table, rc4, rc4-md5,</span><br><span class="line">                                  aes-128-cfb, aes-192-cfb, aes-256-cfb,</span><br><span class="line">                                  aes-128-ctr, aes-192-ctr, aes-256-ctr,</span><br><span class="line">                                  bf-cfb, camellia-128-cfb, camellia-192-cfb,</span><br><span class="line">                                  camellia-256-cfb, cast5-cfb, des-cfb,</span><br><span class="line">                                  idea-cfb, rc2-cfb, seed-cfb, salsa20,</span><br><span class="line">                                  chacha20 and chacha20-ietf.</span><br><span class="line">                                  The default cipher is rc4-md5.</span><br><span class="line"></span><br><span class="line">       [-a &lt;user&gt;]                Run as another user.</span><br><span class="line">       [-f &lt;pid_file&gt;]            The file path to store pid.</span><br><span class="line">       [-t &lt;timeout&gt;]             Socket timeout in seconds.</span><br><span class="line">       [-c &lt;config_file&gt;]         The path to config file.</span><br><span class="line">       [-n &lt;number&gt;]              Max number of open files.</span><br><span class="line">       [-i &lt;interface&gt;]           Network interface to bind.</span><br><span class="line">       [-b &lt;local_address&gt;]       Local address to bind.</span><br><span class="line"></span><br><span class="line">       [-u]                       Enable UDP relay.</span><br><span class="line">       [-U]                       Enable UDP relay and disable TCP relay.</span><br><span class="line"></span><br><span class="line">       [--fast-open]              Enable TCP fast open.</span><br><span class="line">                                  with Linux kernel &gt; 3.7.0.</span><br><span class="line">       [--acl &lt;acl_file&gt;]         Path to ACL (Access Control List).</span><br><span class="line">       [--mtu &lt;MTU&gt;]              MTU of your network interface.</span><br><span class="line">       [--mptcp]                  Enable Multipath TCP on MPTCP Kernel.</span><br><span class="line"></span><br><span class="line">       [-v]                       Verbose mode.</span><br><span class="line">       [-h, --help]               Print this message.</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nohup \</span><br><span class="line">ss-local -s 0.0.0.0 -p 0000 -k 000000 -m *** -l 1080 \</span><br><span class="line">-b 127.0.0.1 -o *** -O *** &gt; ssrlog.txt 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> ss-local -o [obfs] -O [protocol] -g [obfsparam] -s [Address] -p [Port of Server] -l [Local Port] -b [Local address] -k [passward] -m [method]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p>[1]<a href="https://medium.com/@zoomyale/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%9A%84%E7%BB%88%E6%9E%81%E5%A7%BF%E5%8A%BF-%E5%9C%A8-vultr-vps-%E4%B8%8A%E6%90%AD%E5%BB%BA-shadowsocks-fd57c807d97e" target="_blank" rel="noopener">https://medium.com/@zoomyale/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E7%9A%84%E7%BB%88%E6%9E%81%E5%A7%BF%E5%8A%BF-%E5%9C%A8-vultr-vps-%E4%B8%8A%E6%90%AD%E5%BB%BA-shadowsocks-fd57c807d97e</a></p>
+<p>[2] <a href="https://jasper-1024.github.io/2016/06/26/VPS%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/" target="_blank" rel="noopener">https://jasper-1024.github.io/2016/06/26/VPS%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/</a></p>
+<p>[3] <a href="https://doub.io/wlzy-22/" target="_blank" rel="noopener">https://doub.io/wlzy-22/</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/VPS/" rel="tag"># VPS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/19/Java-PracticeIt/" rel="next" title="Java PracticeIt">
+                <i class="fa fa-chevron-left"></i> Java PracticeIt
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/04/利用python进行数据分析-笔记Ch05-Pandas入门/" rel="prev" title="利用python进行数据分析-笔记Ch05-Pandas入门">
+                利用python进行数据分析-笔记Ch05-Pandas入门 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-ss-on-server"><span class="nav-number">1.</span> <span class="nav-text">Deploy ss on server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-ssr-on-server"><span class="nav-number">2.</span> <span class="nav-text">Deploy ssr on server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Tcp-BBR-to-improve-the-connection-speed"><span class="nav-number">3.</span> <span class="nav-text">Use Tcp-BBR to improve the connection speed</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-ssr-client-on-Linux"><span class="nav-number">4.</span> <span class="nav-text">Use ssr client on Linux</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reference"><span class="nav-number">5.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

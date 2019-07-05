@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="大数据分析导论,">
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="大数据分析导论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据分析导论_WEEK11">
+<meta property="og:url" content="https://chenxshuo.cn/2017/05/25/WEEK11/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg">
+<meta property="og:updated_time" content="2019-07-05T07:29:54.968Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据分析导论_WEEK11">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2017/05/25/WEEK11/">
+
+
+
+
+
+  <title>大数据分析导论_WEEK11 | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2017/05/25/WEEK11/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据分析导论_WEEK11</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-25T22:41:50+08:00">
+                2017-05-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据分析导论/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据分析导论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg" alt="General 1920x1200 data center server geometry technology monochrome"></p>
+<a id="more"></a>
+
+<h2 id="Part0-问题背景"><a href="#Part0-问题背景" class="headerlink" title="Part0. 问题背景"></a>Part0. 问题背景</h2><p>通过python实现对一份包含GRE，GPA，Rank和Admit的数据的描述统计，可视化展现以及构建Logistic Regression模型，最终实现输入GRE，GPA和Rank后，预测是否被录取。</p>
+<h2 id="Part1-windows开发环境布置"><a href="#Part1-windows开发环境布置" class="headerlink" title="Part1. windows开发环境布置"></a>Part1. windows开发环境布置</h2><ol>
+<li><p>下载Anaconda（课程代码使用的是python2，所以先安装anaconda对应python2的版本）<br><a href="https://www.continuum.io/downloads#windows/" target="_blank" rel="noopener">链接 点击网页里面的windows按钮即可</a></p>
+</li>
+<li><p>安装Anaconda，点击下载好的exe文件，一路同意下去即可，注意安装的路径不能有中文，即不能安装在命名为中文的文件夹里</p>
+</li>
+<li><p>下载Pycharm（推荐Pycharm Edu版本) <a href="https://www.jetbrains.com/pycharm-edu/download/#section=windows" target="_blank" rel="noopener">链接</a></p>
+</li>
+<li><p>安装Pycharm</p>
+</li>
+<li><p>设定pycharm对应的编译器为anaconda安装路径中的编译器</p>
+</li>
+</ol>
+<blockquote>
+<p>可以直接在开发机上想上课那样编辑并运行，一样的～～～</p>
+</blockquote>
+<blockquote>
+<p>推荐用linux开发，可以安装Ubunt双系统或是虚拟机。</p>
+</blockquote>
+<blockquote>
+<p>python教程<a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000" target="_blank" rel="noopener">廖雪峰</a></p>
+</blockquote>
+<hr>
+<h2 id="Part2-代码用到的知识"><a href="#Part2-代码用到的知识" class="headerlink" title="Part2. 代码用到的知识"></a>Part2. 代码用到的知识</h2><h3 id="1-简介导入的模块"><a href="#1-简介导入的模块" class="headerlink" title="1. 简介导入的模块"></a>1. 简介导入的模块</h3><ol>
+<li>pandas<blockquote>
+<p>数据处理专用分析包。</p>
+</blockquote>
+</li>
+<li>time<blockquote>
+<p>time模块提供操作时间的函数，比如获取当前时间戳（时间戳是以秒为单位的浮点小数，时间戳以自1970年1月1日午夜到现在经过了的时间来表示），在本代码里是用于随机数的seed，设置不同的seed可以得到真随机数</p>
+</blockquote>
+</li>
+<li>numpy<blockquote>
+<p>科学计算使用的包，比如处理矩阵，矢量处理等</p>
+</blockquote>
+</li>
+<li>math<blockquote>
+<p>python自带的数学计算函数，比如求平方，开方，大于某个数的最小整数(ceil)和小于某个数的最大整数(floor)等</p>
+</blockquote>
+</li>
+<li>random<blockquote>
+<p>用于生成伪随机数的包，添加seed后不同的seed可以生成不同的真随机数</p>
+</blockquote>
+</li>
+<li>matplotlib<blockquote>
+<p>一个绘图库，可以绘制简单的散点图，正弦图像或是三维图形等等，满足数据可视化的工作</p>
+</blockquote>
+</li>
+<li>scipy.stats<blockquote>
+<p>scipy是专为科学和工程设计的Python工具包.它包括统计,优化,整合,线性代数模块,傅里叶变换,信号和图像处理,常微分方程求解器等等</p>
+<p>.stats是导入了scipy中的stats即统计部分</p>
+</blockquote>
+</li>
+<li>itertools<blockquote>
+<p>python自带的迭代器，我们代码里用到了里面的groupby可以把重复的元素挑出来</p>
+</blockquote>
+</li>
+<li>sklearn<blockquote>
+<p>功能强大的机器学习包</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="2-定义一个函数，并调用"><a href="#2-定义一个函数，并调用" class="headerlink" title="2. 定义一个函数，并调用"></a>2. 定义一个函数，并调用</h3><p>我们在代码里定义了一个求中位数的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">def get_media(data):</span><br><span class="line">	data.sort() #使用sort对数据排序</span><br><span class="line">    half = len(data) // 2 #数据的个数整除2 例如5个数据则得到2</span><br><span class="line">    return (data[half] + data[~half]) / 2 #5个数据中位数就是正数第三个和倒数第三个的和的一半，也就是第三个数</span><br></pre></td></tr></table></figure>
+
+<p>一个求众数的函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">def quick_get_mode(data): </span><br><span class="line">	return max([x, data.tolist().count(x)] for x in data.tolist()) </span><br><span class="line">    #返回一个列表[a, b],a是众数，b是出现的次数</span><br></pre></td></tr></table></figure>
+
+<p>定义函数的目的很明显是为了在下面求数据的中位数或众数时能够不需要多次输入代码，只需输入get_media(data)即可得到中位数此处data代表一个列表。<br>从上述代码可看出python中定义函数的方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">def 名字(所需的参数变量):</span><br><span class="line">	代码</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-导入数据并简单读取，进行描述统计"><a href="#3-导入数据并简单读取，进行描述统计" class="headerlink" title="3. 导入数据并简单读取，进行描述统计"></a>3. 导入数据并简单读取，进行描述统计</h3><p>在课堂代码中使用了pandas中的方法读取了一个csv文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">df = pd.read_csv(&quot;这个文件的和名字地址&quot;)</span><br><span class="line">#此时df这两个字母就代表了导入的文件</span><br></pre></td></tr></table></figure>
+
+<p>并用简单查看内容，给每一列数据命名，描述统计看一下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">print df.read() #读取前五列内容</span><br><span class="line">df.columns = [&quot;admit&quot;, &quot;gre&quot;, &quot;gpa&quot;, &quot;prestige&quot;]</span><br><span class="line">print df.columns #输出一下columns</span><br><span class="line">print df.describe()</span><br><span class="line">#对每一行描述统计 求数据个数count，平均值mean， 标准差std， 最小值min， 25%位置处的数，中位数， 75%位置处的数，最大值</span><br><span class="line">print df.std() #计算一下每一列数据的标准差</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-存储每一列数据成列表"><a href="#4-存储每一列数据成列表" class="headerlink" title="4. 存储每一列数据成列表"></a>4. 存储每一列数据成列表</h3><p>通过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print type(df[&apos;admit&apos;])</span><br></pre></td></tr></table></figure>
+
+<p>发现通过pandas导入的数据中每一列的存储方式并不是列表而是pandas中的series，而Python对数据的操作支持肯定是原生的列表更好，所以我们有必要把数据导出到列表中去，实现的思想很简单，使用for循环一个一个抄进去就好，这里涉及两个问题，怎么加进去（用列表的append方法，把数据追加到列表后面），循环的衡量标准是什么即什么时候结束（使用pandas中的size方法获取原来数据的长度，使用range确定一个范围）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">for i in range(0, df[&quot;admit&quot;].size)</span><br><span class="line">	ad_lst.append(df[&quot;admit&quot;][i])</span><br></pre></td></tr></table></figure>
+
+<p>更一般的可以看如下代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,3,4,5,6]</span><br><span class="line">b = [0]</span><br><span class="line">for i in range(0, len(a)):</span><br><span class="line">	b.append(a[i])</span><br><span class="line">print b</span><br></pre></td></tr></table></figure>
+
+<p>可以自己简单实现以下看一下输出结果</p>
+<h3 id="5-罗列python中的数据类型"><a href="#5-罗列python中的数据类型" class="headerlink" title="5. 罗列python中的数据类型"></a>5. 罗列python中的数据类型</h3><p>整数 浮点数 字符串 布尔值 空值 变量 常量<br>列表list, 元组tuple， 字典dict， 集合set</p>
+<blockquote>
+<p>list常用的方法有append在末尾追加， insert在指定位置添加， len返回元素个数， pop删除末尾元素等<br>详细内容见<a href="http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386819318453af120e8751ea4d2696d8a1ffa5ffdfd7000" target="_blank" rel="noopener">廖雪峰</a></p>
+</blockquote>
+<h3 id="5-groupby用法"><a href="#5-groupby用法" class="headerlink" title="5. groupby用法"></a>5. groupby用法</h3><p>我们在代码中用到了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">for k, g in groupby(sorted(gre_lst), key = lambda x: x//100)</span><br><span class="line">	g_len = len(list(g))</span><br><span class="line">    print (&quot;&#123;&#125;-&#123;&#125;: &#123;&#125;&quot;.format(k, k+1, g_len))</span><br><span class="line">    gpa_axis.append(str(k)+&quot;-&quot;+str(k+1))</span><br><span class="line">    gre_val.append(g_len)</span><br></pre></td></tr></table></figure>
+
+<p>先说groupby， groupby是itertools里面的一个函数方法，接受两个参数，一个是待迭代的数据，一个是迭代命令，本代码里待迭代的数据就是排序后的gre的分数，迭代命令是数据中的值整除100。例如数据为[200,201,202,302]，那么首先k=200//100=2,前三个整除100结果相同为2与第四个不同，则都填入g中，那么list(g)就为3，一次for循环结束.下一个k=302//100=3,则迭代所有满足整除为3的数据数量最后list(g)就为数据在300-399间的数量。</p>
+<p>除了groupby的用法，这段代码里有一个</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print &quot;&#123;&#125;-&#123;&#125;: &#123;&#125;&quot;.format(k, k+1, g_len)</span><br></pre></td></tr></table></figure>
+
+<p>的表达，这个是输出的一个格式，其实就是把k, k+1, g_len输出到对应的位置，如果加上数字即</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print &quot;&#123;0&#125;-&#123;1&#125;: &#123;2&#125;&quot;.format(k, k+1, g_len)</span><br></pre></td></tr></table></figure>
+
+<p>则和之前的输出结果相同，不过可以把里面的数字调换例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;1&#125;-&#123;2&#125;: &#123;0&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则输出的内容的位置也会变化</p>
+<p>str方法是把数据转化为字符串输出，例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print str(1)+str(2)</span><br><span class="line">print 1 + 2</span><br></pre></td></tr></table></figure>
+
+<p>得到的结果为12和3</p>
+<h3 id="6-matplotlib画图用法"><a href="#6-matplotlib画图用法" class="headerlink" title="6. matplotlib画图用法"></a>6. matplotlib画图用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">plt.figure(num = 1, figsize = (8,6))</span><br><span class="line"># 图片数量为1， 图片大小为8*6， 调整数值可以调整生成图像的大小</span><br><span class="line">plt.title(&apos;Plot 1&apos;, size = 14)</span><br><span class="line">plt.xlable(&apos;x_axis&apos;, size = 14)</span><br><span class="line">plt.ylable(&apos;y_axis&apos;, size = 14)</span><br><span class="line"># 图像的标题叫Plot1， y轴叫y_axis, x轴叫x_axis, 字体大小为14</span><br><span class="line">plt.bar(xD, yD, 0.4, color = &apos;blue&apos;)</span><br><span class="line">#柱状图的数量为xD， 值为yD， 宽度为0.4，柱体的颜色为蓝色</span><br><span class="line">plt.xticks(xD, gre_axis)</span><br><span class="line">#横坐标的第几个位置和对应的值</span><br><span class="line">plt.legend(loc = &apos;upper left&apos;)</span><br><span class="line"># 图例的位置上靠左</span><br><span class="line">plt.savefig(&apos;./z_gre_plot1.png&apos;, format = &apos;png&apos;)</span><br><span class="line">#把得到的图片命名为z_gre_plot1.png存储到代码目录下，格式设置为png</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-皮尔森相关系数及其实现"><a href="#7-皮尔森相关系数及其实现" class="headerlink" title="7. 皮尔森相关系数及其实现"></a>7. 皮尔森相关系数及其实现</h3><p>Pearson相关系数又称线性相关系数,度量两个变量之间的线性相关关系强弱程度，得到的值大小介于-1,1，小于0说明负相关，大于零说明正相关，等于零说明不存在线性相关关系不过可能存在其他相关关系，得到的值的绝对值越大，线性相关关系越显著<br>实现代码如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from scipy.stats import pearsonr</span><br><span class="line">print pearsonr(gre_lst, ad_lst)</span><br><span class="line">print pearsonr(gpa_lst, ad_lst)</span><br><span class="line">print pearsonr(prestige_lst, ad_lst)</span><br></pre></td></tr></table></figure>
+
+<p>得到的输出值中第一个是系数r，第二个是显著性检验的p值，p &lt; 0.05时表示相关显著，两个变量有统计学意义，如果p大于0.05无论r值多大都没有意义</p>
+<blockquote>
+<p>此处没有说清什么是显著性检验，先挖个坑学会了再填。</p>
+</blockquote>
+<h3 id="8-Logistic回归及其实现"><a href="#8-Logistic回归及其实现" class="headerlink" title="8. Logistic回归及其实现"></a>8. Logistic回归及其实现</h3><p>我们处理的是一个二分类任务，通过一个同学的三个属性即GRE成绩，GPA成绩，在学校的排名，来分类为是被录取（admit=1）或者未被录取（admit=0）。对于二分类任务，我们希望把对每一个样本属性值处理的结果转化为一个1或是0的分类，即先通过线性回归方程算出样本的一个值，进而把样本的值转化为1-0之间的值，从而达到分类的目的。</p>
+<p>这里面涉及两个问题，线性回归方程是什么以及怎么把求得的值转换为1-0之间的值</p>
+<hr>
+<h2 id="Part3-Code"><a href="#Part3-Code" class="headerlink" title="Part3. Code"></a>Part3. Code</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br></pre></td><td class="code"><pre><span class="line">#coding=utf-8</span><br><span class="line">import pandas as pd</span><br><span class="line">import time</span><br><span class="line">import numpy as np</span><br><span class="line">import math</span><br><span class="line">import random as rdm</span><br><span class="line">import matplotlib as mpl</span><br><span class="line">mpl.use(&apos;Agg&apos;)</span><br><span class="line">import matplotlib.pyplot as plt</span><br><span class="line">from scipy.stats import pearsonr</span><br><span class="line">from itertools import groupby</span><br><span class="line">from scipy.stats import spearmanr</span><br><span class="line">from scipy import stats</span><br><span class="line">from sklearn.cross_validation import train_test_split</span><br><span class="line">from sklearn.linear_model import LogisticRegression</span><br><span class="line">from sklearn.metrics import classification_report</span><br><span class="line">from sklearn.metrics import precision_recall_curve, roc_curve, auc</span><br><span class="line">from sklearn.externals import joblib</span><br><span class="line"># 导入所需的包</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#定义函数</span><br><span class="line">def get_median(data):</span><br><span class="line">    data.sort()</span><br><span class="line">    half = len(data) // 2</span><br><span class="line">    return (data[half] + data[~half]) / 2</span><br><span class="line"></span><br><span class="line">def quick_get_mode(data):</span><br><span class="line">    return max([x, data.tolist().count(x)] for x in set(data.tolist()))</span><br><span class="line">#定义函数完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#导入数据，并简单查看于描述统计</span><br><span class="line">df = pd.read_csv(&quot;http://www.ats.ucla.edu/stat/data/binary.csv&quot;)</span><br><span class="line">print &quot;----------（输出的时候）上面的一堆英语是警告大意是某个功能在新版本里已经更改----------------------&quot;</span><br><span class="line">print df.head()</span><br><span class="line">df.columns = [&quot;admit&quot;, &quot;gre&quot;, &quot;gpa&quot;, &quot;prestige&quot;]</span><br><span class="line">print df.columns</span><br><span class="line">print df.describe()</span><br><span class="line">print df.std()</span><br><span class="line">print type(df[&apos;admit&apos;])</span><br><span class="line">print &quot;-----------------------导入了数据 简单查看并描述统计了一下---------------------------------&quot;</span><br><span class="line">#完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#把表格的每一列数据单独存储</span><br><span class="line">ad_lst = []</span><br><span class="line">gre_lst = []</span><br><span class="line">gpa_lst = []</span><br><span class="line">prestige_lst = []</span><br><span class="line"></span><br><span class="line">for i in range(0, df[&apos;admit&apos;].size):</span><br><span class="line">    ad_lst.append(df[&apos;admit&apos;][i])</span><br><span class="line"></span><br><span class="line">for i in range(0, df[&apos;gre&apos;].size):</span><br><span class="line">    gre_lst.append(df[&apos;gre&apos;][i])</span><br><span class="line"></span><br><span class="line">for i in range(0, df[&apos;gpa&apos;].size):</span><br><span class="line">    gpa_lst.append(df[&apos;gpa&apos;][i])</span><br><span class="line"></span><br><span class="line">for i in range(0, df[&apos;prestige&apos;].size):</span><br><span class="line">    prestige_lst.append(df[&apos;prestige&apos;][i])</span><br><span class="line"></span><br><span class="line">for i in range(0, len(ad_lst)//100):</span><br><span class="line">    print &quot;Testing ad_lst: &quot;,ad_lst[i]</span><br><span class="line">print &quot;-----------------------把表格的每一列单独存储 并且输出了admit一列的数据-----------------------------------&quot;</span><br><span class="line">#存储完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#使用groupby统计gre每个分数段的人数</span><br><span class="line">gre_axis = []</span><br><span class="line">gre_val = []</span><br><span class="line">print sorted(gre_lst)</span><br><span class="line">print sorted(gpa_lst)</span><br><span class="line">print &quot;----------------------输出了排序过后的gpa和gre的值-------------------------&quot;</span><br><span class="line">for k, g in groupby(sorted(gre_lst), key=lambda x: x//100):</span><br><span class="line">    g_len = len(list(g))</span><br><span class="line">    print (&apos;&#123;0&#125;-&#123;1&#125;: &#123;2&#125;&apos;.format(k*100, (k+1)*100-1, g_len))</span><br><span class="line">    gre_axis.append(str(k*100)+&quot;-&quot;+str((k+1)*100-1))</span><br><span class="line">    gre_val.append(g_len)</span><br><span class="line">print gre_axis</span><br><span class="line">print gre_val</span><br><span class="line">print &quot;-----------------------输出gre的每一个分数段的人数-------输出了横坐标和纵坐标的值----------------------------&quot;</span><br><span class="line">#统计完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#使用groupby统计gpa每个分数段的人数</span><br><span class="line">gpa_axis = []</span><br><span class="line">gpa_val = []</span><br><span class="line">for k, g in groupby(sorted(gpa_lst), key=lambda x: x//1):</span><br><span class="line">    g_len = len(list(g))</span><br><span class="line">    print (&apos;&#123;0&#125;-&#123;1&#125;: &#123;2&#125;&apos;.format(k, k+1, g_len))</span><br><span class="line">    gpa_axis.append(str(k)+&quot;-&quot;+str(k+1))</span><br><span class="line">    gpa_val.append(g_len)</span><br><span class="line"></span><br><span class="line">print gpa_axis</span><br><span class="line">print gpa_val</span><br><span class="line">print &quot;-----------------------输出gpa各个分数段的人数-------------输出了横坐标和纵坐标的值---------------------------&quot;</span><br><span class="line">#统计完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#使用matplotlib画出gre每个分数段的人数，并存储图片</span><br><span class="line">xD = np.arange(0, len(gre_val), 1)</span><br><span class="line">#xD = range(len(gre_axis))</span><br><span class="line">yD = gre_val</span><br><span class="line">plt.figure(num=2, figsize=(8, 6))</span><br><span class="line">plt.title(&apos;Plot 1&apos;, size=14)</span><br><span class="line">plt.xlabel(&apos;x-axis&apos;, size=14)</span><br><span class="line">plt.ylabel(&apos;y-axis&apos;, size=14)</span><br><span class="line">plt.bar(xD, yD, 0.4, color=&apos;blue&apos;)</span><br><span class="line">plt.xticks(xD, gre_axis)</span><br><span class="line">plt.legend(loc=&apos;upper left&apos;)</span><br><span class="line">plt.savefig(&apos;./z_gre_plot.png&apos;, format=&apos;png&apos;)</span><br><span class="line">#统计图生成完毕，图片在代码目录下</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#分别计算gre成绩，gpa成绩，排名和是否被录取的皮尔森相关系数，并输出一个表格</span><br><span class="line">print pearsonr(gre_lst, ad_lst)</span><br><span class="line">print pearsonr(gpa_lst, ad_lst)</span><br><span class="line">print pearsonr(prestige_lst, ad_lst)</span><br><span class="line"></span><br><span class="line">print &quot;------------CROSS Table------------.&quot;</span><br><span class="line">print pd.crosstab(df[&apos;admit&apos;], df[&apos;prestige&apos;], rownames=[&apos;admit&apos;])</span><br><span class="line">print &quot;----------------输出了皮尔森相关系数---输出了一个标准差---输出了一个表格显示每个排名对应的录取和未录取的人数------------&quot;</span><br><span class="line">#计算 输出完毕</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#画图</span><br><span class="line">ad_col = np.array(ad_lst)</span><br><span class="line">prestige_col = np.array(prestige_lst)</span><br><span class="line">gre_col = np.array(gre_lst)</span><br><span class="line">gpa_col = np.array(gpa_lst)</span><br><span class="line"></span><br><span class="line">fpc = np.zeros(ad_col.size)</span><br><span class="line">adc = np.zeros(ad_col.size)</span><br><span class="line"></span><br><span class="line">rdm.seed(time.time())</span><br><span class="line">for i in range(0, ad_col.size):</span><br><span class="line">   #print &quot;i is: &quot;,i</span><br><span class="line">    fpc[i] = float(prestige_col[i]) - rdm.random() * 0.2</span><br><span class="line">    adc[i] = float(ad_col[i]) - rdm.random() * 0.2</span><br><span class="line"></span><br><span class="line">print &quot;ad_col is: &quot;, ad_col</span><br><span class="line"></span><br><span class="line">plt.figure(num=100, figsize=(10, 10))</span><br><span class="line">plt.title(&apos;Plot 6&apos;, size=14)</span><br><span class="line">plt.xlabel(&apos;x-axis&apos;, size=14)</span><br><span class="line">plt.ylabel(&apos;y-axis&apos;, size=14)</span><br><span class="line">plt.xlim(0,5)</span><br><span class="line">plt.ylim(0,2)</span><br><span class="line">plt.plot(fpc, adc, &apos;bo&apos;)</span><br><span class="line">plt.legend(loc=&apos;upper left&apos;)</span><br><span class="line">plt.savefig(&apos;./wtf_c.png&apos;, format=&apos;png&apos;)</span><br><span class="line">print &quot;-------------------输出了admit这一列的数值------生成了一个录取和排名的分布图存储到了代码文件夹下---------&quot;</span><br><span class="line">#画图结束</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#使用python实现Logistics回归</span><br><span class="line">X_T = np.vstack((gre_col, gpa_col, prestige_col))</span><br><span class="line">#X_T = np.vstack((gre_col, gpa_col))</span><br><span class="line">#X_T = np.vstack((gpa_col, prestige_col))</span><br><span class="line">#X_T = np.vstack((gre_col, prestige_col))</span><br><span class="line">Y = np.array(ad_lst)</span><br><span class="line"></span><br><span class="line">X = zip(*X_T)</span><br><span class="line"></span><br><span class="line">X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.3, random_state=0)</span><br><span class="line"></span><br><span class="line">lr = LogisticRegression(C=4.0, random_state=0)</span><br><span class="line">lr.fit(X_train, Y_train)</span><br><span class="line">joblib.dump(lr, &apos;./linearModel.pkl&apos;)</span><br><span class="line">answer = lr.predict_proba(X_test)[:,1]</span><br><span class="line"></span><br><span class="line">print &quot;answer is: &quot;,answer</span><br><span class="line"></span><br><span class="line">precision, recall, thresholds = precision_recall_curve(Y_test, answer)</span><br><span class="line">report = answer &gt; 0.5</span><br><span class="line">print report</span><br><span class="line">print (classification_report(Y_test, report, target_names = [&apos;no_admit&apos;, &apos;admit&apos;]))</span><br><span class="line"></span><br><span class="line">print lr.coef_</span><br><span class="line">print lr.intercept_</span><br><span class="line">print &quot;--------------------------输出了预测值------输出了report-----输出了回归方程中的参数值--------------&quot;</span><br><span class="line">#Logistic回归建模完毕</span><br></pre></td></tr></table></figure>
+
+<hr>
+<blockquote>
+<p>参考资料</p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据分析导论/" rel="tag"># 大数据分析导论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2000/06/21/经济学原理期末/" rel="next" title="经济学原理期末">
+                <i class="fa fa-chevron-left"></i> 经济学原理期末
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/29/ML_in_action_Ch02_kNN/" rel="prev" title="ML_in_action_Ch02_kNN">
+                ML_in_action_Ch02_kNN <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Part0-问题背景"><span class="nav-number">1.</span> <span class="nav-text">Part0. 问题背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part1-windows开发环境布置"><span class="nav-number">2.</span> <span class="nav-text">Part1. windows开发环境布置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part2-代码用到的知识"><span class="nav-number">3.</span> <span class="nav-text">Part2. 代码用到的知识</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-简介导入的模块"><span class="nav-number">3.1.</span> <span class="nav-text">1. 简介导入的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-定义一个函数，并调用"><span class="nav-number">3.2.</span> <span class="nav-text">2. 定义一个函数，并调用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-导入数据并简单读取，进行描述统计"><span class="nav-number">3.3.</span> <span class="nav-text">3. 导入数据并简单读取，进行描述统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-存储每一列数据成列表"><span class="nav-number">3.4.</span> <span class="nav-text">4. 存储每一列数据成列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-罗列python中的数据类型"><span class="nav-number">3.5.</span> <span class="nav-text">5. 罗列python中的数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-groupby用法"><span class="nav-number">3.6.</span> <span class="nav-text">5. groupby用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-matplotlib画图用法"><span class="nav-number">3.7.</span> <span class="nav-text">6. matplotlib画图用法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-皮尔森相关系数及其实现"><span class="nav-number">3.8.</span> <span class="nav-text">7. 皮尔森相关系数及其实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-Logistic回归及其实现"><span class="nav-number">3.9.</span> <span class="nav-text">8. Logistic回归及其实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Part3-Code"><span class="nav-number">4.</span> <span class="nav-text">Part3. Code</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="What is the three elements of Statistic Machine Learning?Basically ,there three elements of Statistic Machine Learning are the model, the learning strategy and the algorithm. ModelIn supervised learni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="what is the three elements of statistical machine learning?">
+<meta property="og:url" content="https://chenxshuo.cn/2018/10/30/what-is-the-three-elements-of-statistical-machine-learning/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:description" content="What is the three elements of Statistic Machine Learning?Basically ,there three elements of Statistic Machine Learning are the model, the learning strategy and the algorithm. ModelIn supervised learni">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-05T07:29:54.997Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="what is the three elements of statistical machine learning?">
+<meta name="twitter:description" content="What is the three elements of Statistic Machine Learning?Basically ,there three elements of Statistic Machine Learning are the model, the learning strategy and the algorithm. ModelIn supervised learni">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2018/10/30/what-is-the-three-elements-of-statistical-machine-learning/">
+
+
+
+
+
+  <title>what is the three elements of statistical machine learning? | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2018/10/30/what-is-the-three-elements-of-statistical-machine-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">what is the three elements of statistical machine learning?</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-30T21:35:29+08:00">
+                2018-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="What-is-the-three-elements-of-Statistic-Machine-Learning"><a href="#What-is-the-three-elements-of-Statistic-Machine-Learning" class="headerlink" title="What is the three elements of Statistic Machine Learning?"></a>What is the three elements of Statistic Machine Learning?</h1><p>Basically ,there three elements of Statistic Machine Learning are <strong>the model</strong>, <strong>the learning strategy</strong> and <strong>the algorithm</strong>.</p>
+<h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><p>In supervised learning , <strong>model</strong> can be a conditional probability distribution $P(Y|X)$ which can predict the probability of each label $Y$ using the input $X$. Besides, model can also be a decision function  $y = f(x)$ which can directly predict the label $Y$ using the input information $X$.</p>
+<p>All the potential models consist the <strong>hypothesis space</strong>, the models in hypothesis space are countless in general. We can use $\mathbb{F}$ to denote the hypothesis space, then $\mathbb{F} = {f | Y = f(X)}$ or $\mathbb{F} = {P | P(Y|X)}$.Usually $\mathbb{F}$ is a parameter vector $\theta ,\  \theta \in R^n$,the $R^n$ is the n-dimensional Euclid Space and can be called the <strong>parameter space</strong>.</p>
+<p>In conclusion, the model can be  $P(Y|X)$ , $f(X)$  and can be described by a n-dimensional vector,all the potential models is called hypothesis space, all the potential parameter is called parameter space.</p>
+<h2 id="Learning-Strategy"><a href="#Learning-Strategy" class="headerlink" title="Learning Strategy"></a>Learning Strategy</h2><p>The goal of statistic learning is to choose the best model from the hypothesis space, so the criterions of learning and choosing model is also an essential part. </p>
+<p>In short, learning strategy tries to convert a learning problem to be a optimization problem. It tries to optimize the SRM function :</p>
+<p>$min_{f\in F}\  \frac{1}{N} \sum_{i=1}^{N}L(y_i, f(x_i)  + \lambda J(f)$</p>
+<h3 id="Loss-function-cost-function-VS-risk-function-expected-loss"><a href="#Loss-function-cost-function-VS-risk-function-expected-loss" class="headerlink" title="Loss function (cost function) VS risk function(expected loss)"></a>Loss function (cost function) VS risk function(expected loss)</h3><p>Frankly speaking , loss function $L(Y,f(X))$ describes the model’s performance in one single prediction but the risk function shows the performance in some general situation.</p>
+<p>Some useful loss functions are as follows :</p>
+<ul>
+<li><p>0-1 loss function</p>
+<p>$ L(Y,f(X)) = \left{ \begin{aligned} 1\ Y \neq f(X) \ 0\ Y = f(X) \ \end{aligned} \right. $</p>
+</li>
+<li><p>quadratic loss function</p>
+<p>$L(Y,f(X)) = (Y - f(X))^2$</p>
+</li>
+<li><p>absolute loss function</p>
+<p>$L(Y,f(X)) = |Y - f(X)|$</p>
+</li>
+<li><p>logarithmic loss function</p>
+<p>$L(Y, P(Y|X)) = -log(P(Y|X))$</p>
+</li>
+</ul>
+<p>For a specified training set, the <strong>empirical risk ** or **empirical loss</strong> is the average loss in the <em>training set</em> of a model $f(X)$ . Furthermore, the <strong>risk function</strong> or <strong>expected loss</strong> describes the loss about the <em>P(X,Y)</em>.</p>
+<p>Theoretically, when there are infinite number of samples in the training set, the $R_{emp} = R_{exp}$. However there are not enough data in most cases, so we need to use some methods to modify the $R_{emp}$ .</p>
+<h3 id="ERM-VS-SRM"><a href="#ERM-VS-SRM" class="headerlink" title="ERM VS SRM"></a>ERM VS SRM</h3><p><strong>ERM</strong> : Empirical risk minimization</p>
+<p><strong>SRM</strong>: Structural risk minimization</p>
+<p>After we get a training set , a bunch models and the loss function, then we can directly calculate the <strong>empirical risk</strong>：$min <em>{ f \in F}\  \frac{1}{N} \sum</em>{i=1}^{N}L(y_i, f(x_i))$ and find a best model. Maximum likelihood estimation is a kind of ERM methods.</p>
+<p>When there are enough training data, the empirical risk minimization can perform well, in other words if we don’t have enough data the ERM will lead to <strong>over-fitting</strong>.</p>
+<p>Here is the reason why we need <strong>SRM</strong> , SRM is just like <strong>regularzation</strong> . It adds a <strong>regularizer</strong> or <strong>penalty term</strong> after the ERM : $R_{srm}(f) =\frac{1}{N} \sum_{i=1}^{N}L(y_i, f(x_i)  + \lambda J(f)$. The value of $J(f)$ will increase if the model gets more complex.</p>
+<h2 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h2><p>Algorithm is the specific methods to choose a best model from the hypothesis space. In most cases, the learning algorithm is an optimization algorithm. </p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>[1] 李航. 统计学习方法[M]. 北京:清华大学出版社, 2012. 6-10</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/06/The-distance-between-a-point-and-a-hyperplane/" rel="next" title="The distance between a point and a hyperplane">
+                <i class="fa fa-chevron-left"></i> The distance between a point and a hyperplane
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/30/perceptron/" rel="prev" title="perceptron">
+                perceptron <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#What-is-the-three-elements-of-Statistic-Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">What is the three elements of Statistic Machine Learning?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Model"><span class="nav-number">1.1.</span> <span class="nav-text">Model</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Learning-Strategy"><span class="nav-number">1.2.</span> <span class="nav-text">Learning Strategy</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Loss-function-cost-function-VS-risk-function-expected-loss"><span class="nav-number">1.2.1.</span> <span class="nav-text">Loss function (cost function) VS risk function(expected loss)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ERM-VS-SRM"><span class="nav-number">1.2.2.</span> <span class="nav-text">ERM VS SRM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Algorithm"><span class="nav-number">1.3.</span> <span class="nav-text">Algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.4.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

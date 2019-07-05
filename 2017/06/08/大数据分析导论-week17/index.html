@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang>
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="大数据分析导论,">
+
+
+
+
+
+
+
+
+
+
+<meta name="keywords" content="大数据分析导论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="大数据分析导论_WEEK17">
+<meta property="og:url" content="https://chenxshuo.cn/2017/06/08/大数据分析导论-week17/index.html">
+<meta property="og:site_name" content="chenxshuo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg">
+<meta property="og:updated_time" content="2019-07-05T07:29:55.044Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="大数据分析导论_WEEK17">
+<meta name="twitter:image" content="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://chenxshuo.cn/2017/06/08/大数据分析导论-week17/">
+
+
+
+
+
+  <title>大数据分析导论_WEEK17 | chenxshuo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">chenxshuo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://chenxshuo.cn/2017/06/08/大数据分析导论-week17/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="chenshuo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="chenxshuo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">大数据分析导论_WEEK17</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-08T18:46:27+08:00">
+                2017-06-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据分析导论/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据分析导论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-87670.jpg" alt="General 1920x1200 data center server geometry technology monochrome"></p>
+<a id="more"></a>
+
+<h3 id="Part0-问题背景"><a href="#Part0-问题背景" class="headerlink" title="Part0. 问题背景"></a>Part0. 问题背景</h3><p>为提高搜索引擎的检索效率，并同时保证广告收益，可以根据搜索引擎已有的大量的数据日志，找出比较经常出现的query，和其对应的经常被点击的bid_word(广告词条)，对两者建立固定的key-value索引，在下次用户检索同样的query时，优先展示这些bid_word。</p>
+<h3 id="Part1-过程简述"><a href="#Part1-过程简述" class="headerlink" title="Part1. 过程简述"></a>Part1. 过程简述</h3><p>本次实现使用了搜索引擎的近1G的日志文件，通过python和Hadoop实现计算功能和分布式处理的功能。</p>
+<p>为满足问题需求，首先要确定query对应的哪些bid_word获得的clk*price（其中click是点击数 price是每个点击的盈利，乘积为总盈利）较多，因此我们需要把每个query&amp;bid_word抽取出来作为一个整体，比较不同的query&amp;bid_word的盈利数量，设置一个阈值例如100，取盈利超过100的query&amp;bid_word作为优先出现的内容。下一步我们需要把query&amp;bid_word分开，建立对应的query-bid_word的key-value索引使得搜索引擎收到同样的query时返回相应的bid_word。</p>
+<p>我们通过两个map-reduce过程处理原始数据：</p>
+<p>首先看原始日志的格式，一行即一条日志记录，原始数据中中第一个是query即查询值，第四个是bid_word即广告词，第二个值是由 show+空格+clk 组成（在后面的map_one.py中有体现），第十一个是每个点击的盈利price。</p>
+<p>第一个map-reduce过程：</p>
+<p>把第一个(query)，第十个(bid_word)，第十一个(price)值取出,放到python数据容器中的一个字典中，并令query+bid_word为key值，对应的clk* price为value值，之后计算相同的key的clk*price的值的总和（在代码中记为cpm）。因为现实中会有许多人在不同的地方不同的时间检索同一个检索词并点击同一条广告，在日志里面记录下query和bid_word相同的一条记录。计算出总和后与自己设定的阈值比较，仅仅保留盈利较大例如50的对应记录，最后输出query bid_word和price</p>
+<p>第二个map-reduce工程：</p>
+<p>接受第一个过程传入的query bid_word和price，获得query和对应的bid_word，因为同一个query可能有多个bid_word均获得较大的收益，因此我们可以输出同一个query对应的收益较高的所有的bid_word。</p>
+<h3 id="Part2-代码实现"><a href="#Part2-代码实现" class="headerlink" title="Part2. 代码实现"></a>Part2. 代码实现</h3><blockquote>
+<p>框架</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/local/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_function</span><span class="params">(file)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            <span class="comment">#执行的代码</span></span><br><span class="line">            </span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="comment">#出现错误后的措施</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data = read_function(sys.stdin)</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">定义一个主函数，调用上一个函数处理通过系统标准输入的一个文件内容</span></span><br><span class="line"><span class="string">cat aaa.txt | bbb.py </span></span><br><span class="line"><span class="string">前一个即为一个标准输入</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br><span class="line"><span class="comment">#调用主函数</span></span><br><span class="line"><span class="comment">#在这里用到了python模块的一个默认属性 __name__，当有一个main函数时便会执行main函数</span></span><br><span class="line"><span class="comment">#如果直接执行py脚本，则if下的代码就会被执行，如果被所谓模块（module）引入，则if语句结果为False，代码被忽略 by 键宇的提醒</span></span><br></pre></td></tr></table></figure>
+
+<p>关于最后的调用主函数可以参考</p>
+<p><a href="https://taizilongxu.gitbooks.io/stackoverflow-about-python/content/18/README.html" target="_blank" rel="noopener"><code>if __name__ == &quot;__main__&quot;:</code>是干嘛的?</a></p>
+<blockquote>
+<p>map_one.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/local/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_input</span><span class="params">(file)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">		<span class="keyword">try</span>:</span><br><span class="line">			arr = line.split(<span class="string">'\t'</span>)</span><br><span class="line">            <span class="comment">#各个数据由\t分开 使用split方法生成一个列表，列表值为由\t分开的各个数据</span></span><br><span class="line">            </span><br><span class="line">			clk = float(arr[<span class="number">1</span>].split(<span class="string">' '</span>)[<span class="number">1</span>])</span><br><span class="line">            <span class="string">"""</span></span><br><span class="line"><span class="string">            因为第二个值由show+空格+clk组成，为了得到clk的值，</span></span><br><span class="line"><span class="string">            我们先把这个值split(' ')分开的到一个新小列表其中第二个值就是clk</span></span><br><span class="line"><span class="string">            列表的从左到右的正向索引从0开始，不是从一开始，也就是第一个值是array[0]</span></span><br><span class="line"><span class="string">            """</span></span><br><span class="line">            </span><br><span class="line">			price = float(arr[<span class="number">10</span>])</span><br><span class="line">            <span class="comment">#第11个值为price，float()是把值（此时是字符串型的数字）转化为浮点数暂时理解为小数</span></span><br><span class="line">			cpm  = clk * price</span><br><span class="line">			</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"%s%s%s%s%f"</span> %(arr[<span class="number">0</span>], <span class="string">'\t'</span>, arr[<span class="number">3</span>], <span class="string">'\t'</span>, cpm)</span><br><span class="line">            <span class="comment">#print arr[0]+"\t"+arr[3]+"\t"+cpm 也可以</span></span><br><span class="line">            <span class="comment">#输出所有的 query \t bid_word \t 总盈利</span></span><br><span class="line">            </span><br><span class="line">		<span class="keyword">except</span> ValueError:</span><br><span class="line">			<span class="keyword">print</span> <span class="string">"Error cause at:"</span>, line</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data = read_from_input(sys.stdin)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>red_one.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/local/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_mapper</span><span class="params">(file)</span>:</span></span><br><span class="line">    dict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            arr = line.split(<span class="string">'\t'</span>)</span><br><span class="line">            key_arr = arr[<span class="number">0</span>] + <span class="string">'\t'</span> + arr[<span class="number">1</span>]</span><br><span class="line">            <span class="comment">#去掉\t后的数据 第一个为query 第二个为bid_word 第三个为盈利</span></span><br><span class="line">            <span class="keyword">if</span> dict.has_key(key_arr):</span><br><span class="line">                dict[key_arr] += float(arr[<span class="number">2</span>].strip())</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dict[key_arr] = float(arr[<span class="number">2</span>].strip())</span><br><span class="line">            <span class="comment">#使用dict的has_key函数，把同一个key值的value全部加起来</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Error cause at: "</span>,line</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> dict</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(separator = <span class="string">'\t'</span>)</span>:</span></span><br><span class="line">    rst = read_from_mapper(sys.stdin)</span><br><span class="line">    <span class="comment">#rst是一个字典 其中的value为盈利值</span></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> rst:</span><br><span class="line">    <span class="comment">#k为字典的各个key值</span></span><br><span class="line">        <span class="keyword">if</span> (rst[k] &gt;= <span class="number">50</span>):</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"%s%s%s"</span> %(k, <span class="string">'\t'</span>, <span class="string">'%.2f'</span>%rst[k])</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出了 “query+bid_word  \t  盈利值”</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>map_two.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/local/bin/python</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_input</span><span class="params">(file)</span>:</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            arr = line.split(<span class="string">'\t'</span>)</span><br><span class="line">            que = arr[<span class="number">0</span>].strip()</span><br><span class="line">            bidword = arr[<span class="number">1</span>].strip()</span><br><span class="line">            <span class="comment">#得到query和bid_word</span></span><br><span class="line">            <span class="keyword">print</span> <span class="string">"%s%s%s"</span> %(que, <span class="string">'\t'</span>, bidword)</span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Error cause at :"</span>, line</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    data = read_from_input(sys.stdin)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>red_two.py</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_from_map2</span><span class="params">(file)</span>:</span></span><br><span class="line">    dict = &#123;&#125;</span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            arr = line.split(<span class="string">'\t'</span>)</span><br><span class="line">            <span class="keyword">if</span> dict.has_key(arr[<span class="number">0</span>].strip()):</span><br><span class="line">                dict[arr[<span class="number">0</span>].strip()] = dict[arr[<span class="number">0</span>].strip()]+<span class="string">" "</span>+arr[<span class="number">1</span>].strip()</span><br><span class="line">                <span class="comment">#拼接同一个query的所有bid_word</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                dict[arr[<span class="number">0</span>].strip()] = arr[<span class="number">1</span>].strip()</span><br><span class="line">        <span class="keyword">except</span> ValueError:</span><br><span class="line">            <span class="keyword">print</span> <span class="string">"Error causes at : "</span>, line</span><br><span class="line">            <span class="keyword">pass</span></span><br><span class="line">    <span class="keyword">return</span> dict</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(separator = <span class="string">'\t'</span>)</span>:</span></span><br><span class="line">    rst = read_from_map2(sys.stdin)</span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> rst:</span><br><span class="line">        <span class="keyword">print</span> <span class="string">"%s%s%s"</span> %(k, <span class="string">'\t'</span>, rst[k])</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>run_hadoop.sh</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">HADOOP_HOME=/usr/hadoop/hadoop-2.7.3/bin/</span><br><span class="line">INPUT=/data_stream</span><br><span class="line">HDFS=/students/chenshuo</span><br><span class="line">OUTPUT_STAGE_A=/sudents/chenshuo/hadoop_homework/1_QUERY_BIDWORD_OUTPUT</span><br><span class="line">OUTPUT_STAGE_B=/sudents/chenshuo/hadoop_homework/2_QUERY_BIDWORD_OUTPUT</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash">HADOOP_HOME/hadoop jar /usr/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \</span></span><br><span class="line">    -input $INPUT/zx*.txt -output $&#123;OUTPUT_STAGE_A&#125; \</span><br><span class="line">    -file map_one.py \</span><br><span class="line">    -file red_one.py \ </span><br><span class="line">    -mapper "python map_one.py" \</span><br><span class="line">    -reducer "python red_one.py" \</span><br><span class="line">    -jobconf mapred.job.name="query_bidword_streaming" \</span><br><span class="line">    -jobconf mapred.job.priority=HIGH \</span><br><span class="line">    -jobconf mapred.reduce.tasks=10 \</span><br><span class="line">    -jobconf mapred.map.tasks=10 \</span><br><span class="line">    -jobconf mapred.job.reduce.capacity=200 \</span><br><span class="line">    -jobconf mapred.job.map.capacity=200 \</span><br><span class="line">    -jobconf stream.memory.limit=4000 \</span><br><span class="line">    -jobconf child.max.memory=4000</span><br><span class="line"></span><br><span class="line">if [ $? -eq 0 ]</span><br><span class="line">then</span><br><span class="line"><span class="meta">$</span><span class="bash">HADOOP_HOME/hadoop jar /usr/hadoop/hadoop-2.7.3/share/hadoop/tools/lib/hadoop-streaming-2.7.3.jar \</span></span><br><span class="line">    -input $&#123;OUTPUT_STAGE_A&#125; -output $&#123;OUTPUT_STAGE_B&#125; \</span><br><span class="line">    -file map_two.py \</span><br><span class="line">    -file red_two.py \ </span><br><span class="line">    -mapper "python map_two.py" \</span><br><span class="line">    -reducer "python red_two.py" \</span><br><span class="line">    -jobconf mapred.job.name="query_bidword_streaming_two" \</span><br><span class="line">    -jobconf mapred.job.priority=HIGH \</span><br><span class="line">    -jobconf mapred.reduce.tasks=10 \</span><br><span class="line">    -jobconf mapred.map.tasks=10 \</span><br><span class="line">    -jobconf mapred.job.reduce.capacity=200 \</span><br><span class="line">    -jobconf mapred.job.map.capacity=200 \</span><br><span class="line">    -jobconf stream.memory.limit=4000 \</span><br><span class="line">    -jobconf child.max.memory=4000</span><br><span class="line">else</span><br><span class="line">    echo "the first step is wrong"</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+
+<h3 id="Part3-注意事项"><a href="#Part3-注意事项" class="headerlink" title="Part3. 注意事项"></a>Part3. 注意事项</h3><ol>
+<li><p>数据已放在master下/usr/tmp下，可以自行拷贝到各自的目录下，以供调试python</p>
+</li>
+<li><p>每执行过一次shell，之后如果下次再执行shell脚本启动hadoop的话，记得先删除之前的输出文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hadoop dfs -rm -r /students/chenshuo/hadoop_homework/*</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用python的调试方法</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat zxaaaaa.txt | python map_one.py | python red_one.py | python map_two.py | python red_two.py</span><br></pre></td></tr></table></figure>
+
+<p>如果正确输出了两列字符应该算是成功了。</p>
+<p>我们也可以把每个python处理的结果输出到文件 一步一步观察</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cat zxaaaaaa.txt | python map_one.py &gt; map_one_rst.txt</span><br><span class="line">cat map_one_rst.txt | python red_one.py &gt; red_one_rst.txt</span><br><span class="line">cat red_one.txt | python map_two.py &gt; map_two_rst.txt</span><br><span class="line">cat map_two_rst.txt | python red_two.py</span><br></pre></td></tr></table></figure>
+
+<p>python文件成功运行后，数据代码放到HDFS中上后，shell脚本的路径与输出地址添加后。便可直接运行shell脚本，启动Hadoop。</p>
+<p>​</p>
+</li>
+<li><p>可以截取一部分数据以减少测试时间：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat zx_logaaaaaa.txt | head -100 &gt; log_test.txt</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行run_hadoop.sh之前，要把HDFS中的数据拷贝到自己目录下，并在shell脚本中更改数据路径</p>
+</li>
+<li><p>python的字典格式如下</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#123;key:value,key1:value&#125;</span><br><span class="line">&#123;<span class="string">"Sam"</span>:<span class="number">1</span>,<span class="string">"Tom"</span>:<span class="number">2</span>,<span class="string">"Jack"</span>:<span class="number">3</span>&#125;</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/大数据分析导论/" rel="tag"># 大数据分析导论</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/29/ML_in_action_Ch02_kNN/" rel="next" title="ML_in_action_Ch02_kNN">
+                <i class="fa fa-chevron-left"></i> ML_in_action_Ch02_kNN
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/10/利用python进行数据分析-笔记Ch04/" rel="prev" title="利用python进行数据分析_笔记Ch04">
+                利用python进行数据分析_笔记Ch04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">chenshuo</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">categories</span>
+                
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">tags</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part0-问题背景"><span class="nav-number">1.</span> <span class="nav-text">Part0. 问题背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part1-过程简述"><span class="nav-number">2.</span> <span class="nav-text">Part1. 过程简述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part2-代码实现"><span class="nav-number">3.</span> <span class="nav-text">Part2. 代码实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part3-注意事项"><span class="nav-number">4.</span> <span class="nav-text">Part3. 注意事项</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">chenshuo</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
